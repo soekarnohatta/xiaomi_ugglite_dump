@@ -1,0 +1,159 @@
+tc 1
+#Headset-mic to Speaker AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:6
+DEC1 MUX:ADC2
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+Speaker PA Open:OFF
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RX HPH Mode:HD2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+Ext Spk Switch:On
+RX1 Digital Volume:72
+RX2 Digital Volume:72
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:0
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO 
+
+Speaker PA Open:ON
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX HPH Mode:NORMAL
+Ext Spk Switch:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+
+tc 2
+#Headset-mic to Receiver AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:6
+DEC1 MUX:ADC2
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+RDAC2 MUX:RX1
+RX1 Digital Volume:84
+EAR PA Gain:POS_6_DB
+EAR_S:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:0
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO 
+
+RX1 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+RX1 Digital Volume:0
+EAR PA Gain:ZERO
+EAR_S:ZERO
+
+tc 3
+#Handset-mic to Headphone Dual-Channel AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+HP ANALOG SWITCH:ON
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RX1 Digital Volume:77
+RX2 Digital Volume:77
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+HP ANALOG SWITCH:OFF
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+
+tc 4
+#Secondary-mic to Headphone Dual-Channel AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:6
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+IIR1 INP1 MUX:DEC1
+
+HP ANALOG SWITCH:ON
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RX1 Digital Volume:77
+RX2 Digital Volume:77
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC3 Volume:0
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO 
+
+HP ANALOG SWITCH:OFF
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
